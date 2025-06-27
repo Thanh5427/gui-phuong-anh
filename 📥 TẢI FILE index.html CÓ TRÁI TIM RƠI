@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gửi Phương Anh 💌</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: #e91e63;
+    }
+    .btn {
+      padding: 12px 24px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      background-color: #f06292;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #ec407a;
+    }
+    .heart {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/4/49/Red_Heart.png');
+      background-size: cover;
+      animation: float 6s infinite ease-in-out;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-600px) scale(0.5); opacity: 0; }
+    }
+  
+    .falling-heart {
+      position: fixed;
+      top: -30px;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/4/49/Red_Heart.png');
+      background-size: cover;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-30px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+    </style>
+</head>
+<body>
+  <h1>Chào buổi sáng Phương Anh 💖</h1>
+  <p>Chúc em ngày mới nhiều năng lượng… làm việc chăm chỉ nhé!!!<br/>
+     Bỏ món mướp đắng với ngải cứu ra khỏi bữa trưa nhớ 😭</p>
+
+  <button class="btn" onclick="accept()">Đồng ý nha 🥺</button>
+  <button class="btn" onclick="reject()">Không đồng ý 🙅‍♀️</button>
+
+  <p style="margin-top: 40px;"><em>Mỗi ngày một niềm vui, hy vọng anh sẽ mang lại cho em nụ cười mỗi ngày 🥰</em></p>
+
+  <audio autoplay loop>
+    <source src="https://dl.dropboxusercontent.com/scl/fi/7q6epbblp3zds0r8wswl6/yeu-em-hon-moi-ngay.mp3?rlkey=tadrcmvr62ef7c0yjeh1v1t9h&dl=0" type="audio/mp3">
+  </audio>
+
+  <script>
+    function accept() {
+      alert("Nếu em bấm nhầm… thì anh cũng coi là em đồng ý rồi nhé 😚");
+    }
+    function reject() {
+      alert("Hả ??? 😳 Em lại ăn mướp đắng à? 🥹");
+    }
+    // Hiệu ứng trái tim bay
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = "100vh";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 500);
+  
+    // Trái tim rơi
+    setInterval(() => {
+      const fall = document.createElement("div");
+      fall.className = "falling-heart";
+      fall.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(fall);
+      setTimeout(() => fall.remove(), 5000);
+    }, 800);
+    </script>
+</body>
+</html>
